@@ -18,6 +18,7 @@ pastas_para_backup = [
     r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\files',
     r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\metadata'
 ]
+pasta_storage = r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage'
 
 #verifica se o arquivo de backup já existe antes de criar um novo
 if not os.path.exists(destino_da_compactacao):
@@ -27,10 +28,15 @@ if not os.path.exists(destino_da_compactacao):
         'w',
         zipfile.ZIP_DEFLATED
     ) as zipf:
-        for root, subFolders, files in os.walk(local_da_pasta):
-            for file in pastas_para_backup:
-                caminho_completo = os.path.join(root, file)
-                zipf.write(caminho_completo, os.path.relpath(caminho_completo, local_da_pasta))
+        for pasta in pastas_para_backup:
+            for root, subFolders, files in os.walk(pasta):
+                for file in files:
+                    caminho_completo = os.path.join(root, file)
+                    print("Adicionando ao ZIP:", caminho_completo)
+                    zipf.write(
+                        caminho_completo,
+                        os.path.relpath(caminho_completo, pasta_storage)
+                    )
 
     #avisa que o backup foi realizado com sucesso e informa o caminho do arquivo de backup criado
     print(f"Backup realizado com sucesso! Arquivo de backup criado: {destino_da_compactacao}")
