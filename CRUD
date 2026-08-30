@@ -1,0 +1,49 @@
+from typing import Union
+from typing import List
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from http import HTTPStatus
+import csv
+import os
+
+app = FastAPI()
+CSV_FILE = "database.csv"
+
+class Foto(BaseModel):
+    id: int 
+    nomeOriginal: str
+    caminho: str
+    tamanho: int
+    extensao: str
+    categoria: str
+    evento: str
+    ano: int 
+    fromato: str
+    data_upload: str
+
+def ler_dados_csv():
+    fotos = []
+    if os.path.exists(CSV_FILE):
+        with open(CSV_FILE, mode="r", newline="") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                fotos.append(Foto(**row))
+    return fotos
+
+def escrever_dados_csv(fotos):
+    with open(CSV_FILE, mode="w", newline="") as file:
+        fieldnames = csv.DictWriter(file,fieldnames=fieldnames)
+        writer.writerheader()
+        for foto in fotos:
+            writer.writerow(fotos.dict())
+
+@app.post("/fotos", response_model=Foto)
+def criar_foto(produto: Foto):
+    fotos = listar_fotos()
+    if any(f.id == foto.id for f in fotos):
+        raise HTTPException(status_code=400, detail="Id já existe")
+    fotos.append(foto)
+    escrever_dados_csv(fotos)
+    return produto
+
+
