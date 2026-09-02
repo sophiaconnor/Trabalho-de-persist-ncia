@@ -25,24 +25,26 @@ def criar_backup():
 
     #verifica se o arquivo de backup já existe antes de criar um novo
     if not os.path.exists(destino_da_compactacao):
-        #realiza a compactação da pasta
-        with zipfile.ZipFile(
-            destino_da_compactacao,
-            'w',
-            zipfile.ZIP_DEFLATED
-        ) as zipf:
-            for pasta in pastas_para_backup:
-                for root, subFolders, files in os.walk(pasta):
-                    for file in files:
-                        caminho_completo = os.path.join(root, file)
-                        #print("Adicionando ao ZIP:", caminho_completo)
-                        zipf.write(
+
+        try:
+            #realiza a compactação da pasta
+            with zipfile.ZipFile(
+                destino_da_compactacao,
+                'w',
+                zipfile.ZIP_DEFLATED
+            ) as zipf:
+                for pasta in pastas_para_backup:
+                    for root, subFolders, files in os.walk(pasta):
+                        for file in files:
+                            caminho_completo = os.path.join(root, file)
+                            #print("Adicionando ao ZIP:", caminho_completo)
+                            zipf.write(
                             caminho_completo,
                             os.path.relpath(caminho_completo, pasta_storage)
                         )
-
-        #avisa que o backup foi realizado com sucesso e informa o caminho do arquivo de backup criado
-        #print(f"Backup realizado com sucesso! Arquivo de backup criado: {destino_da_compactacao}")
+        except Exception as e:
+            print(f"Erro ao criar o backup: {e}")
+            return "erro"
 
     return destino_da_compactacao
 
@@ -50,15 +52,21 @@ def criar_backup():
 def listar_backups():
     #cria uma lista para armazenar os arquivos de backup encontrados
     backups = []
-    #percorre a pasta de backups e verifica se existem arquivos com extensão .zip
-    for filename in os.listdir(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups'):
-        if filename.endswith('.zip'):
-            #define o caminho completo do arquivo de backup
-            filepath = os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups', filename)
-            #adiciona o nome do arquivo e o tamanho do arquivo à lista de backups
+
+    try:
+        #percorre a pasta de backups e verifica se existem arquivos com extensão .zip
+        for filename in os.listdir(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups'):
+            if filename.endswith('.zip'):
+                #define o caminho completo do arquivo de backup
+                filepath = os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups', filename)
+                #adiciona o nome do arquivo e o tamanho do arquivo à lista de backups
             backups.append({
                 "arquivo": filename,
                 "tamanho": os.path.getsize(filepath)
             })
-return backups
+    except Exception as e:
+        print(f"Erro ao listar backups: {e}")
+    return backups
 
+if __name__ == "__main__":
+    print(listar_backups())

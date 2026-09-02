@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from app.services.backup_service import executar_backup
+from app.services.backup_service import obter_backups
 
 # Definir o roteador para a rota de backup
 router = APIRouter()
@@ -21,4 +22,13 @@ def fazer_backup():
     return {
         "mensagem": "Backup realizado com sucesso.",
         "arquivo": resultado
+    }
+
+@router.get("/backups")
+def listar_backups_api():
+    #retorna a lista de arquivos de backup encontrados
+    backups = obter_backups()
+    #retorna a lista de arquivos de backup encontrados
+    return {
+        "backups": backups
     }
