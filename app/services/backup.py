@@ -2,6 +2,7 @@ import zipfile
 import os
 from datetime import datetime
 
+# Função para criar um backup
 def criar_backup():
 
     #define o nome do arquivo de backup com base na data e hora atual
@@ -44,3 +45,20 @@ def criar_backup():
         #print(f"Backup realizado com sucesso! Arquivo de backup criado: {destino_da_compactacao}")
 
     return destino_da_compactacao
+
+# Função para listar os arquivos de backup existentes e o tamanho de cada arquivo
+def listar_backups():
+    #cria uma lista para armazenar os arquivos de backup encontrados
+    backups = []
+    #percorre a pasta de backups e verifica se existem arquivos com extensão .zip
+    for filename in os.listdir(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups'):
+        if filename.endswith('.zip'):
+            #define o caminho completo do arquivo de backup
+            filepath = os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups', filename)
+            #adiciona o nome do arquivo e o tamanho do arquivo à lista de backups
+            backups.append({
+                "arquivo": filename,
+                "tamanho": os.path.getsize(filepath)
+            })
+return backups
+
