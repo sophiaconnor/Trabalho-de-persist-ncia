@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from starlette import status
 from app.services.backup_service import executar_backup
 from app.services.backup_service import obter_backups
 
@@ -29,6 +30,11 @@ def listar_backups_api():
     #retorna a lista de arquivos de backup encontrados
     backups = obter_backups()
     #retorna a lista de arquivos de backup encontrados
+    if not backups:
+        raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail="Nenhum backup encontrado"
+    )
     return {
         "backups": backups
     }
