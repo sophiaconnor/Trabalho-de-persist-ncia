@@ -60,10 +60,10 @@ def listar_backups():
                 #define o caminho completo do arquivo de backup
                 filepath = os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups', filename)
                 #adiciona o nome do arquivo e o tamanho do arquivo à lista de backups
-            backups.append({
-                "arquivo": filename,
-                "tamanho": os.path.getsize(filepath)
-            })
+                backups.append({
+                    "arquivo": filename,
+                    "tamanho": os.path.getsize(filepath)
+                })
     except Exception as e:
         print(f"Erro ao listar backups: {e}")
     return backups
