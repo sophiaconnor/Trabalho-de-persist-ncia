@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from starlette import status
 from app.services.backup_service import executar_backup
 from app.services.backup_service import obter_backups
