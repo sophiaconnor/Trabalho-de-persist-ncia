@@ -1,0 +1,15 @@
+[
+    {
+        "id": 0,
+        "nome_original": "string.jpg",
+        "nome_armazenado": "string.jpg",
+        "extensao": ".jpg",
+        "tipo_mime": "image/jpeg",
+        "tamanho": 204800,
+        "categoria": "paisagem",
+        "descricao": "Foto tirada ao pôr do sol",
+        "data_upload": "2026-09-17T10:30:00",
+        "sha256": "c0fc3c713f09a43384ac08f7d91fca430dcbc6466fff9284ce4571bdc2c8f9f9",
+        "disponivel": true
+    }
+]
