@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
 import logging
 import logging.config
 from pathlib import Path
@@ -20,4 +20,4 @@ logging.config.dictConfig(config)
 
 logger = logging.getLogger("Acervo_fotos")
 logger.info("Sistema de logging inicializado.")
->>>>>>> 362e2f403239b295e9174ca4fa06676ff3190eb4
+#>>>>>>> 362e2f403239b295e9174ca4fa06676ff3190eb4

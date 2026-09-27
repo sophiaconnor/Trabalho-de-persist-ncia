@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 """"⊱───────⊰•͙✧ BaseModel da class foto ✧•͙⊱───────⊰"""
-class FotoModel(BaseModel):
+class Foto(BaseModel):
     nome_original: str
     nome_armazenado: str
     extensao: str
