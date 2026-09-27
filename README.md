@@ -17,7 +17,7 @@ requisitos:
 1. armazenamento de arquivos:
 O sistema deve permitir realizar o upload e armazenar fisicamente o arquivo enviado.
 2. Listagem de documentos:
-O sistema deve permitir a listagem de todos os documentos armazenados no sistema, , retornando seus respectivos metadados.
+O sistema deve permitir a listagem de todos os documentos armazenados no sistema, retornando seus respectivos metadados.
 3. Consulta de documentos:
 O sistema deve permitir a consulta de um documento por meio de seu ID, retornando seus respectivos metadados. Caso o documento não exista, deverá ser retornada uma resposta HTTP adequada.
 4. Download do arquivo:
@@ -44,12 +44,21 @@ O sistema deve utilizar um arquivo externo de configuração para definir parâm
 O sistema deve tratar erros relacionados a arquivos, JSON, configurações, upload, backup e operações com documentos, retornando mensagens e códigos HTTP adequados quando aplicável.
 
 bibliotecas utilizadas:
+fastapi
+uvicorn
+pandas
 
 instruções de instalação:
+pip install fastapi uvicorn 
+pip install pandas
 
 instruções de execução:
+1. python -m uvicorn app.main:app --reload
+2. acessar http://127.0.0.1:8000 
 
 descrição da estrutura do projeto:
+Trabalho-de-persistencia
+    venv
 
 principais endpoints:
 
