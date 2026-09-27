@@ -16,5 +16,5 @@ config["handlers"]["file"]["filename"] = str(BASE_DIR / "app.log")
 
 logging.config.dictConfig(config)
 
-logger = logging.getLogger("acervo_fotos")
+logger = logging.getLogger("Acervo_fotos")
 logger.info("Sistema de logging inicializado.")
