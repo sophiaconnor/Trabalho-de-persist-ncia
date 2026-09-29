@@ -1,1 +1,38 @@
-
+[
+    {
+        "id": 1,
+        "nome_original": "20250411180823-aac4cb0f-2s.jpg",
+        "nome_armazenado": "20260929201027_20250411180823-aac4cb0f-2s.jpg",
+        "extensao": ".jpg",
+        "tipo_mime": "image/jpeg",
+        "tamanho": 18390,
+        "categoria": "evento",
+        "descricao": "palestra",
+        "data_upload": "2026-09-29T20:10:27.785830",
+        "sha256": "eaf53bd12b8096245ed6c9579bd6e195300940fac2c5ecc00242d3841306335e"
+    },
+    {
+        "id": 2,
+        "nome_original": "Your name wallpaper - [4k].jpg",
+        "nome_armazenado": "20260929202213_Your name wallpaper - [4k].jpg",
+        "extensao": ".jpg",
+        "tipo_mime": "image/jpeg",
+        "tamanho": 48230,
+        "categoria": "apenas_teste",
+        "descricao": "teste",
+        "data_upload": "2026-09-29T20:22:13.010572",
+        "sha256": "68fe95763fb8d952548fe353dd98769d377bb009672c74cde607e221b2ddd44f"
+    },
+    {
+        "id": 3,
+        "nome_original": "Your name wallpaper - [4k].jpg",
+        "nome_armazenado": "20260929202213_Your name wallpaper - [4k].jpg",
+        "extensao": ".jpg",
+        "tipo_mime": "image/jpeg",
+        "tamanho": 48230,
+        "categoria": "apenas_teste",
+        "descricao": "teste",
+        "data_upload": "2026-09-29T20:22:13.224140",
+        "sha256": "245292dbbbeffa3a879fe76169fd63049aa267442836efa240cb2506dfd27600"
+    }
+]

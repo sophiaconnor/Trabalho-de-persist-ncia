@@ -29,9 +29,11 @@ async def criar_foto(
     categoria: str = Form(None),
     descricao: str = Form(None),
 ):
+    
     nome_original = file.filename
     extensao = os.path.splitext(nome_original)[1]
     tipo_mime = file.content_type
+
     conteudo = await file.read()
     tamanho = len(conteudo)
 
@@ -39,6 +41,7 @@ async def criar_foto(
     data_upload = datetime.now().isoformat()
 
     registros = ler_json(FOTOS_JSON)
+
     novo_id = max([r["id"] for r in registros], default=0) + 1
 
     registro = {
@@ -55,6 +58,7 @@ async def criar_foto(
     registro["sha256"] = gerar_sha(registro)
 
     adicionar_json(FOTOS_JSON, registro)
+
     adicionar_csv(FOTOS_CSV, registro)
 
     logger.info("Foto cadastrada: id=%s, nome=%s", registro["id"], registro["nome_original"])
