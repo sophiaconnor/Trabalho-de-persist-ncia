@@ -11,17 +11,17 @@ def criar_backup():
     nome_backup = f"backup_{data_hora}.zip"
 
     #define o caminho da pasta que será compactada
-    local_da_pasta = r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\files'
+    local_da_pasta = r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage\files'
 
     #define o caminho de destino do arquivo compactado
-    destino_da_compactacao =  os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups', nome_backup)
+    destino_da_compactacao =  os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage\backups', nome_backup)
 
 
     pastas_para_backup = [
-        r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\files',
-        r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\metadata'
+        r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage\files',
+        r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage\metadata'
     ]
-    pasta_storage = r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage'
+    pasta_storage = r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage'
 
     #verifica se o arquivo de backup já existe antes de criar um novo
     if not os.path.exists(destino_da_compactacao):
@@ -55,10 +55,10 @@ def listar_backups():
 
     try:
         #percorre a pasta de backups e verifica se existem arquivos com extensão .zip
-        for filename in os.listdir(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups'):
+        for filename in os.listdir(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage\backups'):
             if filename.endswith('.zip'):
                 #define o caminho completo do arquivo de backup
-                filepath = os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persist-ncia\storage\backups', filename)
+                filepath = os.path.join(r'C:\Users\sophi\OneDrive\Documentos\Trabalho-de-persistencia\storage\backups', filename)
                 #adiciona o nome do arquivo e o tamanho do arquivo à lista de backups
                 backups.append({
                     "arquivo": filename,

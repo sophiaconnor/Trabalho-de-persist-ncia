@@ -1,4 +1,2 @@
-
-1,20250411180823-aac4cb0f-2s.jpg,20260929201027_20250411180823-aac4cb0f-2s.jpg,.jpg,image/jpeg,18390,evento,palestra,2026-09-29T20:10:27.785830,eaf53bd12b8096245ed6c9579bd6e195300940fac2c5ecc00242d3841306335e
-2,Your name wallpaper - [4k].jpg,20260929202213_Your name wallpaper - [4k].jpg,.jpg,image/jpeg,48230,apenas_teste,teste,2026-09-29T20:22:13.010572,68fe95763fb8d952548fe353dd98769d377bb009672c74cde607e221b2ddd44f
-3,Your name wallpaper - [4k].jpg,20260929202213_Your name wallpaper - [4k].jpg,.jpg,image/jpeg,48230,apenas_teste,teste,2026-09-29T20:22:13.224140,245292dbbbeffa3a879fe76169fd63049aa267442836efa240cb2506dfd27600
+id,nome_original,nome_armazenado,extensao,tipo_mime,tamanho,categoria,descricao,data_upload,sha256
+1,Design sem nome (1).jpg,20261003165703_Design sem nome (1).jpg,.jpg,image/jpeg,82508,background,flower,2026-10-03T16:57:03.503825,d75787add5bada95553b4d785c20acabc2a3335eb54d439fbc88bb3951943408

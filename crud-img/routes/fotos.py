@@ -13,6 +13,8 @@ from models.foto import Foto
 BASE_DIR = Path(__file__).resolve().parent.parent
 FOTOS_JSON = BASE_DIR / "data" / "fotos.json"
 FOTOS_CSV = BASE_DIR / "data" / "fotos.csv"
+PASTA_FOTOS = BASE_DIR.parent / "storage" / "files"
+PASTA_FOTOS.mkdir(parents=True, exist_ok=True)
 
 router = APIRouter(
     prefix="/fotos",   # plural para ficar mais natural
@@ -40,6 +42,10 @@ async def criar_foto(
     nome_armazenado = f"{datetime.now().strftime('%Y%m%d%H%M%S')}_{nome_original}"
     data_upload = datetime.now().isoformat()
 
+    caminho_arquivo = PASTA_FOTOS / nome_armazenado
+    with open(caminho_arquivo, "wb") as arquivo:
+        arquivo.write(conteudo)
+
     registros = ler_json(FOTOS_JSON)
 
     novo_id = max([r["id"] for r in registros], default=0) + 1
@@ -55,6 +61,7 @@ async def criar_foto(
         "descricao": descricao,
         "data_upload": data_upload,
     }
+    
     registro["sha256"] = gerar_sha(registro)
 
     adicionar_json(FOTOS_JSON, registro)

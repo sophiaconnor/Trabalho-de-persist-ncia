@@ -1,5 +1,6 @@
 # Trabalho-de-persist-ncia
 nome do projeto: 
+API de Acervo de Fotos
 
 integrantes: 
 Ana Vitória de Melo Silva
@@ -53,17 +54,92 @@ pip install fastapi uvicorn
 pip install pandas
 
 instruções de execução:
-1. python -m uvicorn app.main:app --reload
-2. acessar http://127.0.0.1:8000 
+no terminal, executar as seguintes instruções:
+1. para entrar na pasta do crud: cd crud-img
+2. python -m uvicorn app.main:app --reload
+2. (acessar) http://127.0.0.1:8000
 
 descrição da estrutura do projeto:
-Trabalho-de-persistencia
-    venv
+Trabalho-de-persistencia/
+    app/
+        models/ #talvez apagar depois
+        routes/
+        services/
+        utils/
+        main.py #talvez apagar depois
+
+    config/ #talvez apagar depois
+        gitkeep
+
+    crud-img/
+        core/
+        data/
+        models/
+        routes/
+        services/
+
+── storage/
+        backups/
+        exports/ #talvez apagar depois
+        files/
+        logs/
+        metadata/
+
+── .gitignore
+── README.md
 
 principais endpoints:
+## Principais endpoints
+
+Fotos
+
+Método: GET
+Endpoint: `/fotos/`
+Descrição: Lista as fotos cadastradas
+
+Método: POST
+Endpoint: `/fotos/`
+Descrição: Cadastra uma nova foto
+
+Método: GET
+Endpoint: `/fotos/csv`
+Descrição: Lista os dados das fotos em CSV
+
+Método: PUT
+Endpoint: `/fotos/{foto_id}`
+Descrição: Atualiza os dados de uma foto
+
+Método: DELETE
+Endpoint: `/fotos/{foto_id}`
+Descrição: Remove uma foto
+
+Backups
+
+Método: POST
+Endpoint: `/backup`
+Descrição: Realiza um backup compactado dos dados
+
+Método: GET
+Endpoint: `/backups`
+Descrição: Lista os backups disponíveis
 
 exemplos de utilização:
+Para cadastrar uma foto, o usuário realiza uma requisição POST /fotos/, enviando o arquivo e informações como categoria e descrição.
+Para atualizar os dados de uma foto cadastrada, o usuário realiza uma requisição PUT /fotos/{foto_id}, informando o ID da foto e os novos valores para categoria e/ou descrição.
+Para excluir uma foto cadastrada, o usuário realiza uma requisição DELETE /fotos/{foto_id}, informando o ID correspondente à foto que deseja remover.
+Para consultar as fotos cadastradas, o usuário realiza uma requisição GET /fotos/. A API retorna os registros das fotos armazenadas, incluindo seus metadados.
 
 metadados específicos do domínio:
+01. id
+02. nome_original
+03. nome_armazenado
+04. extensao: str
+05. tipo_mime
+06. tamanho
+07. categoria 
+08. descricao 
+09. data_upload
+10. sha256
+
 
 descrição da funcionalidade específica do tema:

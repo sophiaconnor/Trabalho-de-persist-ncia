@@ -13,6 +13,12 @@ def fazer_backup():
     #executar o backup chamando a função executar_backup
     resultado = executar_backup()
 
+    if resultado == "erro":
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Erro ao realizar o backup"
+        )
+
     #checa se o resultado é None, indicando que o backup já existe
     if resultado is None:
         return {
@@ -29,6 +35,7 @@ def fazer_backup():
 def listar_backups_api():
     #retorna a lista de arquivos de backup encontrados
     backups = obter_backups()
+
     #retorna a lista de arquivos de backup encontrados
     if not backups:
         raise HTTPException(

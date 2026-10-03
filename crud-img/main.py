@@ -10,7 +10,8 @@ app = FastAPI(
     ),
     version="1.0.0")
 
-app.include_router(fotos.router, prefix="/fotos", tags=["fotos"])
+#app.include_router(fotos.router, prefix="/fotos", tags=["fotos"])
+app.include_router(fotos.router)
 @app.get("/", tags=["Sistema"])
 def home():
     logger.info("Endpoint raiz acessado.")
