@@ -130,16 +130,14 @@ Para excluir uma foto cadastrada, o usuário realiza uma requisição DELETE /fo
 Para consultar as fotos cadastradas, o usuário realiza uma requisição GET /fotos/. A API retorna os registros das fotos armazenadas, incluindo seus metadados.
 
 metadados específicos do domínio:
-01. id
+01: autor (fotógrafo)
 02. nome_original
 03. nome_armazenado
-04. extensao: str
-05. tipo_mime
-06. tamanho
+04. extensao
 07. categoria 
 08. descricao 
-09. data_upload
-10. sha256
+09. ano
+10. local
 
 
 descrição da funcionalidade específica do tema:

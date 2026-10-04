@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from routes import fotos
 from core.logging_config import logger
 
-
 app = FastAPI(
     title="QXD0099 - API Acervo de fotos",
     description=(

@@ -1,4 +1,5 @@
 import hashlib
+import importlib
 import os
 from datetime import datetime
 from pathlib import Path
@@ -77,13 +78,36 @@ async def criar_foto(
     logger.info("Foto cadastrada: id=%s, nome=%s", registro["id"], registro["nome_original"])
     return registro
 
+#f3
+@router.get("/{foto_id}", response_model=Foto)
+def obter_foto(foto_id: int):
+    registros = ler_json(FOTOS_JSON)
+    foto = next((r for r in registros if r["id"] == foto_id), None)
+    if not foto:
+        raise HTTPException(status_code=404, detail="Foto não encontrada.")
+    return foto
+
+#f4
+@router.get("/{foto_id}/download")
+def download_foto(foto_id: int):
+    registros = ler_json(FOTOS_JSON)
+    foto = next((r for r in registros if r["id"] == foto_id), None)
+    if not foto:
+        raise HTTPException(status_code=404, detail="Foto não encontrada.")
+
+    caminho_arquivo = PASTA_FOTOS / foto["nome_armazenado"]
+    if not caminho_arquivo.exists():
+        raise HTTPException(status_code=404, detail="Arquivo da foto não encontrado.")
+
+    return importlib.import_module("fastapi.responses").FileResponse(
+        path=caminho_arquivo,
+        media_type=foto["tipo_mime"],
+        filename=foto["nome_original"]
+    )
+
 @router.get("/", response_model=list[Foto])
 def listar_fotos():
     return ler_json(FOTOS_JSON)
-
-@router.get("/csv")
-def listar_fotos_csv():
-    return ler_csv(FOTOS_CSV)
 
 @router.put("/{foto_id}", response_model=Foto)
 async def atualizar_foto(
@@ -105,7 +129,7 @@ async def atualizar_foto(
 
     atualizar_json(FOTOS_JSON, foto_id, foto)
     atualizar_csv(FOTOS_CSV, foto_id, foto)
-    
+
     logger.info(
     "Metadados da foto atualizados: id=%s",
     foto_id
@@ -117,4 +141,9 @@ def excluir_foto(foto_id: int):
     if not remover_json(FOTOS_JSON, foto_id):
         raise HTTPException(status_code=404, detail="Foto não encontrada.")
     remover_csv(FOTOS_CSV, foto_id)
+
+    logger.info(
+    "Metadados da foto removidos: id=%s",
+    foto_id
+)
     return {"mensagem": "Foto removida com sucesso."}
