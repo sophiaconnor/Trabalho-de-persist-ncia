@@ -43,7 +43,7 @@ def inicializar_csv(file: Path):
             writer = csv.DictWriter(f, fieldnames=[
                 "id","nome_original","nome_armazenado","extensao",
                 "tipo_mime","tamanho","categoria","descricao",
-                "data_upload","sha256"
+                "data_upload","sha256", "autor", "local", "ano"
             ])
             writer.writeheader()
 
@@ -58,7 +58,7 @@ def adicionar_csv(file: Path, dados: dict):
         writer = csv.DictWriter(f, fieldnames=[
             "id","nome_original","nome_armazenado","extensao",
             "tipo_mime","tamanho","categoria","descricao",
-            "data_upload","sha256"
+            "data_upload","sha256", "autor", "local", "ano"
         ])
         writer.writerow(dados)
 
@@ -69,7 +69,7 @@ def atualizar_csv(file: Path, id: int, dados: dict):
         writer = csv.DictWriter(f, fieldnames=[
             "id","nome_original","nome_armazenado","extensao",
             "tipo_mime","tamanho","categoria","descricao",
-            "data_upload","sha256"
+            "data_upload","sha256", "autor", "local", "ano"
         ])
         writer.writeheader()
         for r in registros:
@@ -88,7 +88,7 @@ def remover_csv(file: Path, id: int):
             writer = csv.DictWriter(f, fieldnames=[
                 "id","nome_original","nome_armazenado","extensao",
                 "tipo_mime","tamanho","categoria","descricao",
-                "data_upload","sha256"
+                "data_upload","sha256", "autor", "local", "ano"
             ])
             writer.writeheader()
             writer.writerows(novos)

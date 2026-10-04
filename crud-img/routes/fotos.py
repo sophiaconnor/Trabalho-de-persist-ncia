@@ -30,6 +30,9 @@ async def criar_foto(
     file: UploadFile = File(...),
     categoria: str = Form(None),
     descricao: str = Form(None),
+    autor: str = Form(...),
+    local: str = Form(...),
+    ano: int = Form(...)
 ):
     
     nome_original = file.filename
@@ -60,6 +63,9 @@ async def criar_foto(
         "categoria": categoria,
         "descricao": descricao,
         "data_upload": data_upload,
+        "autor": autor,
+        "local": local,
+        "ano": ano
     }
     
     registro["sha256"] = gerar_sha(registro)

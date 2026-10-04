@@ -8,7 +8,10 @@ class Foto(BaseModel):
     extensao: str
     tipo_mime: str
     tamanho: int
-    categoria: str 
-    descricao: str 
+    categoria: str | None = None
+    descricao: str | None = None
     data_upload: str
     sha256: str
+    autor: str
+    local: str
+    ano: int

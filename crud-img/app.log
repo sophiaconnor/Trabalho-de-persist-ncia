@@ -14,3 +14,9 @@
 2026-10-03 17:21:15,153 - persistencia_api - INFO - Endpoint raiz acessado.
 2026-10-04 06:49:55,990 - persistencia_api - INFO - Sistema de logging inicializado.
 2026-10-04 06:49:59,378 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-04 14:29:41,216 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-04 14:29:44,537 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-04 14:31:14,084 - persistencia_api - INFO - Foto cadastrada: id=1, nome=Design sem nome (1).jpg
+2026-10-04 14:31:44,270 - persistencia_api - INFO - Foto cadastrada: id=2, nome=Design sem nome (1).jpg
+2026-10-04 14:48:00,618 - persistencia_api - INFO - Foto cadastrada: id=1, nome=Design sem nome (1).jpg
+2026-10-04 14:50:10,320 - persistencia_api - INFO - Sistema de logging inicializado.
