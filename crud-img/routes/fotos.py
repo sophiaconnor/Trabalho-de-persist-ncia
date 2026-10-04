@@ -105,6 +105,11 @@ async def atualizar_foto(
 
     atualizar_json(FOTOS_JSON, foto_id, foto)
     atualizar_csv(FOTOS_CSV, foto_id, foto)
+    
+    logger.info(
+    "Metadados da foto atualizados: id=%s",
+    foto_id
+)
     return foto
 
 @router.delete("/{foto_id}", status_code=status.HTTP_200_OK)

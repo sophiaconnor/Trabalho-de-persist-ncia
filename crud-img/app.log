@@ -20,3 +20,8 @@
 2026-10-04 14:31:44,270 - persistencia_api - INFO - Foto cadastrada: id=2, nome=Design sem nome (1).jpg
 2026-10-04 14:48:00,618 - persistencia_api - INFO - Foto cadastrada: id=1, nome=Design sem nome (1).jpg
 2026-10-04 14:50:10,320 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-04 14:50:24,103 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-04 14:50:29,127 - persistencia_api - INFO - Foto cadastrada: id=2, nome=Design sem nome (1).jpg
+2026-10-04 15:07:29,017 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-04 15:07:36,878 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-04 15:08:30,694 - persistencia_api - INFO - Metadados da foto atualizados: id=1
