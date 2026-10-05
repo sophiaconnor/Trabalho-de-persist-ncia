@@ -50,3 +50,21 @@
 2026-10-04 17:04:24,183 - persistencia_api - INFO - Sistema de logging inicializado.
 2026-10-04 17:04:34,554 - persistencia_api - INFO - Sistema de logging inicializado.
 2026-10-04 17:04:46,948 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-05 12:15:55,844 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 12:16:02,319 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-05 12:16:31,466 - persistencia_api - INFO - Metadados da foto removidos: id=1
+2026-10-05 12:16:40,300 - persistencia_api - INFO - Metadados da foto removidos: id=2
+2026-10-05 13:19:38,336 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 14:39:29,795 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 14:39:31,960 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-05 14:41:20,562 - persistencia_api - INFO - Foto cadastrada: id=1, nome=Palestra A desimportância como lupa.jpg
+2026-10-05 14:45:19,529 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 14:45:44,886 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 14:46:04,893 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-05 14:47:05,983 - persistencia_api - INFO - Foto cadastrada: id=1, nome=Palestra O jogo como método de criação artística e acadêmica.jpg
+2026-10-05 14:47:38,482 - persistencia_api - INFO - Metadados da foto removidos: id=1
+2026-10-05 15:00:51,313 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 15:01:01,922 - persistencia_api - INFO - Sistema de logging inicializado.
+2026-10-05 15:01:08,656 - persistencia_api - INFO - Endpoint raiz acessado.
+2026-10-05 15:02:48,453 - persistencia_api - INFO - Foto cadastrada: id=1, nome=Palestra Engenharia Semiótica e o campo das TIC e TDICS.jpg
+2026-10-05 15:03:14,221 - persistencia_api - INFO - Foto e metadados removidos: id=1

@@ -138,12 +138,28 @@ async def atualizar_foto(
 
 @router.delete("/{foto_id}", status_code=status.HTTP_200_OK)
 def excluir_foto(foto_id: int):
-    if not remover_json(FOTOS_JSON, foto_id):
-        raise HTTPException(status_code=404, detail="Foto não encontrada.")
+
+    fotos = ler_json(FOTOS_JSON)
+
+    foto = next((f for f in fotos if f["id"] == foto_id), None)
+
+    if not foto:
+        raise HTTPException(
+            status_code=404,
+            detail="Foto não encontrada."
+        )
+
+    remover_arquivo = PASTA_FOTOS / foto["nome_armazenado"]
+
+    if remover_arquivo.exists():
+        remover_arquivo.unlink()
+
+    remover_json(FOTOS_JSON, foto_id)
     remover_csv(FOTOS_CSV, foto_id)
 
     logger.info(
-    "Metadados da foto removidos: id=%s",
-    foto_id
-)
+        "Foto e metadados removidos: id=%s",
+        foto_id
+    )
+
     return {"mensagem": "Foto removida com sucesso."}
