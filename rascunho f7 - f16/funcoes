@@ -1,0 +1,82 @@
+import json, hashlib, os
+from typing import List, Optional
+from models.foto import Foto
+
+def carregar_fotos() -> List[Foto]:
+    with open("data/fotos.json", "r", encoding="utf-8") as f:
+        dados = json.load(f)
+    return [Foto(**foto) for foto in dados]
+
+# --- F7: Filtragem ---
+def filtrar_fotos(evento: Optional[str], ano: Optional[int], formato: Optional[str], categoria: Optional[str]) -> List[Foto]:
+    fotos = carregar_fotos()
+    if evento:
+        fotos = [f for f in fotos if f.evento == evento]
+    if ano:
+        fotos = [f for f in fotos if f.ano == ano]
+    if formato:
+        fotos = [f for f in fotos if f.formato == formato]
+    if categoria:
+        fotos = [f for f in fotos if f.categoria == categoria]
+    return fotos
+
+# --- F8: Estatísticas ---
+def calcular_estatisticas() -> dict:
+    fotos = carregar_fotos()
+    total = len(fotos)
+    tamanho_total = sum(f.tamanho for f in fotos)
+    por_formato, por_evento, por_ano, por_categoria = {}, {}, {}, {}
+
+    for f in fotos:
+        por_formato[f.formato] = por_formato.get(f.formato, 0) + 1
+        por_evento[f.evento] = por_evento.get(f.evento, 0) + 1
+        por_ano[f.ano] = por_ano.get(f.ano, 0) + 1
+        por_categoria[f.categoria] = por_categoria.get(f.categoria, 0) + 1
+
+    return {
+        "total_fotos": total,
+        "espaco_utilizado_bytes": tamanho_total,
+        "por_formato": por_formato,
+        "por_evento": por_evento,
+        "por_ano": por_ano,
+        "por_categoria": por_categoria
+    }
+
+# --- F9: Integridade ---
+def calcular_hash(filepath: str) -> str:
+    sha256 = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        for bloco in iter(lambda: f.read(4096), b""):
+            sha256.update(bloco)
+    return sha256.hexdigest()
+
+def verificar_integridade(id: int) -> dict:
+    fotos = carregar_fotos()
+    foto = next((f for f in fotos if f.id == id), None)
+    if not foto:
+        return {"erro": "Foto não encontrada"}
+    filepath = os.path.join("storage", foto.nome)
+    if not os.path.exists(filepath):
+        return {"erro": "Arquivo não encontrado"}
+    hash_atual = calcular_hash(filepath)
+    return {
+        "id": foto.id,
+        "nome": foto.nome,
+        "hash_original": foto.hash,
+        "hash_atual": hash_atual,
+        "integro": foto.hash == hash_atual
+    }
+
+# --- F16: Estatísticas específicas ---
+def calcular_estatisticas_tema() -> dict:
+    fotos = carregar_fotos()
+    por_evento, por_ano, por_formato = {}, {}, {}
+    for f in fotos:
+        por_evento[f.evento] = por_evento.get(f.evento, 0) + 1
+        por_ano[f.ano] = por_ano.get(f.ano, 0) + 1
+        por_formato[f.formato] = por_formato.get(f.formato, 0) + 1
+    return {
+        "estatisticas_evento": por_evento,
+        "estatisticas_ano": por_ano,
+        "estatisticas_formato": por_formato
+    }
