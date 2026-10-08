@@ -94,9 +94,7 @@ def remover_csv(file: Path, id: int):
         return True
     return False
 
-""""⊱───────⊰•͙✧ F7, F8, F9, F16 ✧•͙⊱───────⊰"""
-
-# --- F7: Filtragem ---
+#f7
 def filtrar_fotos_json(file: Path, evento=None, ano=None, formato=None, categoria=None):
     registros = ler_json(file)
     if evento:
@@ -121,7 +119,7 @@ def filtrar_fotos_csv(file: Path, evento=None, ano=None, formato=None, categoria
         registros = [r for r in registros if r.get("categoria") == categoria]
     return registros
 
-# --- F8: Estatísticas ---
+#f8
 def calcular_estatisticas_json(file: Path):
     registros = ler_json(file)
     total = len(registros)
@@ -139,7 +137,7 @@ def calcular_estatisticas_json(file: Path):
         "por_categoria": por_categoria
     }
 
-# --- F9: Verificação de integridade ---
+#f9
 def calcular_hash(filepath: Path) -> str:
     sha256 = hashlib.sha256()
     with filepath.open("rb") as f:
@@ -164,7 +162,7 @@ def verificar_integridade_json(file: Path, id: int, storage_dir: Path):
         "integro": foto["sha256"] == hash_atual
     }
 
-# --- F16: Estatísticas específicas ---
+# f16
 def calcular_estatisticas_tema_json(file: Path):
     registros = ler_json(file)
     por_evento, por_ano, por_formato = {}, {}, {}
