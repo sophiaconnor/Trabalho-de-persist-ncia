@@ -163,3 +163,9 @@ def excluir_foto(foto_id: int):
     )
 
     return {"mensagem": "Foto removida com sucesso."}
+
+#f16
+# retorna a distribuição do acervo por evento, ano, formato
+@router.get("/estatisticas/tema", tags=["Fotos"])
+def obter_estatisticas_tema():
+    return calcular_estatisticas_tema_json(FOTOS_JSON)
