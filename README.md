@@ -56,7 +56,7 @@ pip install pandas
 instruções de execução:
 no terminal, executar as seguintes instruções:
 1. para entrar na pasta do crud: cd crud-img
-2. python -m uvicorn app.main:app --reload
+2. python -m uvicorn main:app --reload
 2. (acessar) http://127.0.0.1:8000
 
 descrição da estrutura do projeto:

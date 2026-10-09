@@ -5,7 +5,7 @@ from core.logging_config import logger
 app = FastAPI(
     title="QXD0099 - API Acervo de fotos",
     description=(
-        "API didática com FastAPI, persistência em JSON e CSV "
+        "API de persistência de fotos, com operações CRUD (Create, Read, Update, Delete) para gerenciar o acervo de fotos."
     ),
     version="1.0.0")
 

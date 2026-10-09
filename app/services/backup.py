@@ -46,6 +46,7 @@ def criar_backup():
             print(f"Erro ao criar o backup: {e}")
             return "erro"
 
+    else: print("arquivo de backup já exxistente")
     return destino_da_compactacao
 
 # Função para listar os arquivos de backup existentes e o tamanho de cada arquivo
