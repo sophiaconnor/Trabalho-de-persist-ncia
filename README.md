@@ -140,4 +140,4 @@ metadados específicos do domínio:
 10. local
 
 
-descrição da funcionalidade específica do tema:
+descrição da funcionalidade específica do tema: retorna um agrupamento feito por meio de uma análise da lista de fotos e gera estatísticas sobre a mesma com os atributos de evento, ano e formato do arquivo.

@@ -1,6 +1,0 @@
-from fastapi import FastAPI
-from routes import fotos
-
-app = FastAPI(title="API Acervo Fotográfico")
-
-app.include_router(fotos.router)
